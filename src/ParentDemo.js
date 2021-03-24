@@ -9,7 +9,8 @@ export class ParentDemo extends React.Component {
       name: "cheng"
     }
   };
-  addGrandSonName(value) {
+
+  addGrandSonName = (value) => {
     const preName = this.state.Person.name + value;
     this.setState({
       Person: {
@@ -17,18 +18,19 @@ export class ParentDemo extends React.Component {
         name: preName
       }
     });
-  }
+    console.log(this.state.Person, "addGrandSonName");
+  };
 
-  addSonName(value) {
-    const preName = value;
-    const Person = Object.assign({}, { ...this.state.Person }, { name: value });
-    // this.setState({
-    //   Person: {
-    //     ...{Person},
-    //     name: preName
-    //   }
-    // });
-  }
+  addSonName = (value) => {
+    const preName = this.state.Person.name + value;
+    this.setState({
+      Person: {
+        ...this.state.Person,
+        name: preName
+      }
+    });
+    console.log(this.state.Person, "addSonName");
+  };
   render() {
     return (
       <div>
